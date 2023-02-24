@@ -2,26 +2,24 @@ const refs = {
   form: document.getElementById('form'),
   inputQuery: document.getElementById('query'),
   output: document.getElementById('output'),
-  matchList: document.getElementById('match'),
+  matchList: document.querySelector('.match'),
 };
 refs.form.addEventListener('submit', onSubmit);
 
 function onSubmit(e) {
   e.preventDefault();
   const { value } = refs.inputQuery;
-  getTranslate(value, function (translationResult) {
-    console.log(translationResult);
-    const match = showMatch(translationResult);
-    console.log('match: ', match);
-    refs.matchList.textContent = match;
-  });
+  getTranslate(value, implementMatches);
 }
 function showMatch(match) {
   return `
     <li id="match-item">${match}</li>
   `;
 }
-
+function implementMatches(matches) {
+  console.log('matches: ', matches);
+  refs.matchList.insertAdjacentHTML('beforeend', matches);
+}
 async function getTranslate(query, callback) {
   try {
     const res = await fetch(
@@ -29,14 +27,14 @@ async function getTranslate(query, callback) {
     );
     const data = res.json();
     const translate = await data;
-    // console.log(translate.responseData.translatedText);
-    const matches = translate.matches;
-    const matchesAll = matches.map(el => console.log(el));
+    console.log(translate);
+    const matches = translate.matches.map(match => match.segment);
+    console.log(matches);
 
     refs.output.textContent = translate.responseData.translatedText;
     callback(matches);
   } catch (error) {
-    console.log('error', error);
+    console.dir(error);
   }
 
   // return ;
