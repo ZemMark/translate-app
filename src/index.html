@@ -13,15 +13,31 @@
   <!-- ❗️❗️❗️ Add partials like so for every page -->
   <form method="get" id="form">
     <div>
+      <label for="query">From</label>
       <input type="text" name="query" id="query">
+      <select name="lang" id="langFrom">
+        <option value="en" selected>en</option>
+        <option value="de">de</option>
+        <option value="it">it</option>
+        <option value="fr">fr</option>
+        <option value="es">es</option>
+      </select>
+      <label for="langTo">To</label>
+      <select name="langTo" id="langTo">
+        <option value="en" selected>en</option>
+        <option value="de">de</option>
+        <option value="it">it</option>
+        <option value="fr">fr</option>
+        <option value="es">es</option>
+      </select>
       <button type="submit" id="submit">translate</button>
-      <ul class="match"></ul>
     </div>
     <div>
       <p class="output" id="output"></p>
     </div>
 
   </form>
+  <ul class="match"></ul>
   <script src="./index.js" type="module"></script>
 </body>
 

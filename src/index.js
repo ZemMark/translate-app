@@ -3,13 +3,17 @@ const refs = {
   inputQuery: document.getElementById('query'),
   output: document.getElementById('output'),
   matchList: document.querySelector('.match'),
+  optionsLangFrom: document.getElementById('langFrom'),
+  optionsLangTo: document.getElementById('langTo'),
 };
 refs.form.addEventListener('submit', onSubmit);
 
 function onSubmit(e) {
   e.preventDefault();
   const { value } = refs.inputQuery;
-  getTranslate(value, implementMatches);
+  const fromLang = refs.optionsLangFrom.value;
+  const langTo = refs.optionsLangTo.value;
+  getTranslate(value, implementMatches, fromLang, langTo);
 }
 
 function implementMatches(match) {
@@ -17,10 +21,11 @@ function implementMatches(match) {
 
   refs.matchList.innerHTML = match;
 }
-async function getTranslate(query, callback) {
+async function getTranslate(query, callback, fromLang, langTo) {
+  console.log('langs :', fromLang, langTo);
   try {
     const res = await fetch(
-      `https://api.mymemory.translated.net/get?q="${query}"!&langpair=en|de`
+      `https://api.mymemory.translated.net/get?q="${query}"!&langpair=${fromLang}|${langTo}`
     );
     const data = res.json();
     const translate = await data;
