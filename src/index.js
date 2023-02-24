@@ -11,14 +11,11 @@ function onSubmit(e) {
   const { value } = refs.inputQuery;
   getTranslate(value, implementMatches);
 }
-function showMatch(match) {
-  return `
-    <li id="match-item">${match}</li>
-  `;
-}
-function implementMatches(matches) {
-  console.log('matches: ', matches);
-  refs.matchList.insertAdjacentHTML('beforeend', matches);
+
+function implementMatches(match) {
+  console.log('matches: ', match);
+
+  refs.matchList.innerHTML = match;
 }
 async function getTranslate(query, callback) {
   try {
@@ -28,7 +25,14 @@ async function getTranslate(query, callback) {
     const data = res.json();
     const translate = await data;
     console.log(translate);
-    const matches = translate.matches.map(match => match.segment);
+    // const matches = translate.matches.map(match => match.segment);
+    const matches = translate.matches
+      .map(el => {
+        return `
+        <li><p>${el.segment}</p></li>
+      `;
+      })
+      .join('');
     console.log(matches);
 
     refs.output.textContent = translate.responseData.translatedText;
