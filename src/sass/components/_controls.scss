@@ -4,3 +4,15 @@
 i{
   cursor: pointer;
 }
+.reverse{
+  margin: 0 auto;
+}
+button[data-action="translate"]{
+  width: 100%;
+}
+.controls li:first-child{
+  margin-right: 40px;
+}
+.controls li:last-child{
+  margin-left: 40px;
+}
