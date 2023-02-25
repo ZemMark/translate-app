@@ -1,3 +1,4 @@
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const refs = {
   form: document.getElementById('form'),
   inputQuery: document.getElementById('query'),
@@ -51,13 +52,48 @@ async function getTranslate(query, callback, fromLang, langTo) {
   // return ;
 }
 function onIconCLick(e) {
-  console.log(e.target);
+  // console.log(e.target);
 
-  if (e.target['data-action="speeck"']) {
-    console.log('on sound click');
+  if (e.target.getAttribute('data-action') === 'speeck') {
+    if (e.target.id === 'from') {
+      console.log('on sound click (from)');
+      playSound(refs.inputQuery.value, refs.optionsLangFrom.value);
+      console.log(refs.inputQuery.value, refs.optionsLangFrom.value);
+
+      return;
+    }
+    console.log('on sound click (to)');
+    playSound(refs.output.value, refs.optionsLangTo.value);
+    console.log(refs.inputQuery.value, refs.optionsLangTo.value);
+  }
+  if (e.target.getAttribute('data-action') === 'copy') {
+    if (e.target.id === 'from') {
+      console.log('on copy click (from)');
+      copyText(refs.inputQuery.value);
+      seccussesCopy();
+      return;
+    }
+    copyText(refs.output.value);
+    console.log('on copy click(to)');
+    seccussesCopy();
+  }
+  if (e.target.getAttribute('data-action') === 'reverse') {
+    console.log('reverse languages');
   }
 }
-
+function playSound(value, lang) {
+  let utterance = new SpeechSynthesisUtterance(value);
+  utterance.lang = lang;
+  console.log('plaing');
+  speechSynthesis.speak(utterance);
+}
+function copyText(value) {
+  navigator.clipboard.writeText(value);
+}
+function seccussesCopy() {
+  Notify.success('text copied');
+}
+function reverseQuerys() {}
 // function showResult() {
 // refs.output.textContent =
 // }

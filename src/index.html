@@ -20,35 +20,35 @@
         style="resize: none;"></textarea>
       <ul class="controls">
         <li class="control-item">
-          <i class="bi bi-volume-up" data-action="speeck"></i>
-          <i class="bi bi-stickies" data-action="copy"></i>
+          <i class="bi bi-volume-up" data-action="speeck" id="from"></i>
+          <i class="bi bi-stickies" data-action="copy" id="from"></i>
         </li>
         <li class="control-item">
           <select name="lang" id="langFrom" class="form-select" aria-label="Default select example">
-            <option value="en" selected>en</option>
-            <option value="de">de</option>
-            <option value="it">it</option>
-            <option value="fr">fr</option>
-            <option value="es">es</option>
+            <option value="en-GB" selected>en</option>
+            <option value="de-DE">de</option>
+            <option value="it-IT">it</option>
+            <option value="fr-FR">fr</option>
+            <option value="es-ES">es</option>
           </select>
 
         </li>
 
 
-        <li class="control-item reverse">
-          <i class="bi bi-arrow-down-up"></i>
+        <li class="control-item reverse" data-action="reverse">
+          <i class="bi bi-arrow-down-up" data-action="reverse"></i>
         </li>
         <li class="control-item">
-          <i class="bi bi-volume-up"></i>
-          <i class="bi bi-stickies"></i>
+          <i class="bi bi-volume-up" data-action="speeck" id="to"></i>
+          <i class="bi bi-stickies" data-action="copy" id="to"></i>
         </li>
         <li class="control-item">
           <select name="langTo" id="langTo" class="form-select" aria-label="Default select example">
-            <option value="en" selected>en</option>
-            <option value="de">de</option>
-            <option value="it">it</option>
-            <option value="fr" selected>fr</option>
-            <option value="es">es</option>
+            <option value="'en-GB'" selected>en</option>
+            <option value="de-DE">de</option>
+            <option value="it-IT">it</option>
+            <option value="fr-Fr" selected>fr</option>
+            <option value="es-ES">es</option>
           </select>
         </li>
 

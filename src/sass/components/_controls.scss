@@ -4,8 +4,10 @@
 i{
   cursor: pointer;
 }
-.reverse{
-  margin: 0 auto;
+.control-item.reverse{
+  margin: auto;
+  transform: rotate(90deg);
+
 }
 button[data-action="translate"]{
   width: 100%;
