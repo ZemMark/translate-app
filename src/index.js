@@ -5,8 +5,10 @@ const refs = {
   matchList: document.querySelector('.match'),
   optionsLangFrom: document.getElementById('langFrom'),
   optionsLangTo: document.getElementById('langTo'),
+  controlsList: document.querySelector('.controls'),
 };
 refs.form.addEventListener('submit', onSubmit);
+refs.controlsList.addEventListener('click', onIconCLick);
 
 function onSubmit(e) {
   e.preventDefault();
@@ -47,6 +49,13 @@ async function getTranslate(query, callback, fromLang, langTo) {
   }
 
   // return ;
+}
+function onIconCLick(e) {
+  console.log(e.target);
+
+  if (e.target['data-action="speeck"']) {
+    console.log('on sound click');
+  }
 }
 
 // function showResult() {
