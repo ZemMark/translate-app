@@ -1,4 +1,5 @@
 .controls{
+  width: 100%;
   display: flex;
   position: absolute;
     top: 10;
@@ -7,7 +8,7 @@
 }
 .to{
 
-  top: 260;
+  top: 320;
   left:10;
     @media screen and (min-width: 1024px) {
       top: 10;
@@ -47,7 +48,18 @@ button[data-action="translate"]{
 }
 
 .controls-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  
     @media screen and (min-width: 1024px) {
       position: relative;
     }
+}
+.langage-api{
+  position: absolute;
+  top:250;
+  display: flex;
+      left: 50vw;
+        transform: translateX(-50%);
 }

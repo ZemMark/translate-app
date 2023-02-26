@@ -18,56 +18,57 @@
 
       <form method="get" id="form">
         <div class="inputs">
-          <textarea type="text" name="langFrom" id="query" style="resize: none;"></textarea>
+          <textarea type="text" name="langFrom" id="query" style="resize: none; margin-bottom: 55px;"></textarea>
           <textarea type=" text" name="langTo" class="output" id="output" readonly disabled
             style="resize: none;"></textarea>
-        </div>
-        <div class="controls-container">
+          <div class="controls-container">
 
-          <ul class="controls from">
-            <li class="control-item">
-              <i class="bi bi-volume-up" data-action="speeck" id="from"></i>
-            </li>
-            <li class="control-item">
-              <i class="bi bi-stickies" data-action="copy" id="from"></i>
+            <ul class="controls from">
+              <li class="control-item">
+                <i class="bi bi-volume-up" data-action="speeck" id="from"></i>
+              </li>
+              <li class="control-item">
+                <i class="bi bi-stickies" data-action="copy" id="from"></i>
 
-            </li>
-            <li class="control-item">
-              <select name="lang" id="langFrom" class="form-select" aria-label="Default select example">
-                <option value="en-GB" selected>English</option>
-                <option value="de-DE">de</option>
-                <option value="it-IT">it</option>
-                <option value="fr-FR">Fanch</option>
-                <option value="es-ES">es</option>
-              </select>
+              </li>
+            </ul>
+            <ul class="langage-api">
+              <li class="control-item">
+                <select name="lang" id="langFrom" class="form-select" aria-label="Default select example">
+                  <option value="en-GB" selected>English</option>
+                  <option value="de-DE">de</option>
+                  <option value="it-IT">it</option>
+                  <option value="fr-FR">Fanch</option>
+                  <option value="es-ES">es</option>
+                </select>
 
-            </li>
-            <li class="reverse-button">
-              <i class="bi bi-arrow-down-up" data-action="reverse"></i>
-            </li>
-          </ul>
-          <ul class="controls to">
+              </li>
+              <!-- <li class="reverse-button"> -->
+              <li class="">
+                <i class="bi bi-arrow-down-up" data-action="reverse"></i>
+              </li>
+              </li>
+              <li class="control-item">
+                <select name="langTo" id="langTo" class="form-select" aria-label="Default select example">
+                  <option value="'en-GB'" selected>English</option>
+                  <option value="de-DE">de</option>
+                  <option value="it-IT">it</option>
+                  <option value="fr-Fr" selected>Fanch</option>
+                  <option value="es-ES">es</option>
+                </select>
+              </li>
+            </ul>
+            <ul class="controls to">
 
-            <li class="control-item">
-              <i class="bi bi-volume-up" data-action="speeck" id="to"></i>
-            </li>
-            <li class="control-item">
-              <i class="bi bi-stickies" data-action="copy" id="to"></i>
-
-            </li>
-            <li class="control-item">
-              <select name="langTo" id="langTo" class="form-select" aria-label="Default select example">
-                <option value="'en-GB'" selected>English</option>
-                <option value="de-DE">de</option>
-                <option value="it-IT">it</option>
-                <option value="fr-Fr" selected>Fanch</option>
-                <option value="es-ES">es</option>
-              </select>
-            </li>
-
-
-
-          </ul>
+              <li class="control-item">
+                <i class="bi bi-volume-up" data-action="speeck" id="to"></i>
+              </li>
+              </li>
+              <li class="control-item">
+                <i class="bi bi-stickies" data-action="copy" id="to"></i>
+              </li>
+            </ul>
+          </div>
         </div>
         <button type="submit" id="submit" data-action="translate">translate</button>
 
