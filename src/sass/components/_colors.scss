@@ -1,6 +1,6 @@
 /* Colors */
 $primary-color: #ffffff;
-$secondary-color: #2b2b2b;
+$secondary-color: #ffffff;
 $accent-color: #ec3f00;
 $accent-color-hover: #da1111;
 
@@ -13,9 +13,9 @@ $accent-color-hover: #da1111;
 
 /* Style for the tag select */
 .form-select {
-  appearance: none;
+  // appearance: none;
   background-color: $secondary-color;
-  border: none;
+  border: 1px solid red;
   border-radius: 5px;
   color: $primary-color;
   font-size: 16px;
@@ -41,14 +41,15 @@ $accent-color-hover: #da1111;
 .inputs {
   background-color: $primary-color;
   border-radius: 5px;
-  color: $secondary-color;
+  color: #000;
 
 
   textarea {
     background-color: $secondary-color;
-    border: none;
+    // border: none;
+  border: 1px solid red;
     border-radius: 5px;
-    color: $primary-color;
+    color: #000;
     font-size: 16px;
 
     resize: none;
@@ -63,9 +64,10 @@ $accent-color-hover: #da1111;
 
     select {
       background-color: $secondary-color;
-      border: none;
+  border: 1px solid red;
+      // border: transparent;
       border-radius: 5px;
-      color: $primary-color;
+      color: #000;
       font-size: 16px;
     }
   }
@@ -75,7 +77,7 @@ $accent-color-hover: #da1111;
 
 #submit {
   background-color: $accent-color;
-  border: none;
+  border: transparent;
   border-radius: 5px;
   color: $primary-color;
   cursor: pointer;
