@@ -1,8 +1,8 @@
 /* Colors */
 $primary-color: #ffffff;
 $secondary-color: #ffffff;
-$accent-color: #ec3f00;
-$accent-color-hover: #da1111;
+$accent-color: #45891b;
+$accent-color-hover: #026601;
 
 /* Remove default styling */
 * {
@@ -15,7 +15,7 @@ $accent-color-hover: #da1111;
 .form-select {
   // appearance: none;
   background-color: $secondary-color;
-  border: 1px solid red;
+  border: 1px solid $accent-color-hover;
   border-radius: 5px;
   color: $primary-color;
   font-size: 16px;
@@ -47,13 +47,27 @@ $accent-color-hover: #da1111;
   textarea {
     background-color: $secondary-color;
     // border: none;
-  border: 1px solid red;
-    border-radius: 5px;
-    color: #000;
-    font-size: 16px;
+  border-top: 1px solid $accent-color-hover;
+  border-bottom: 1px solid $accent-color-hover;
+  outline: transparent;
+  color: #000;
+  font-size: 16px;
+  
+  resize: none;
+  
+}
+.input{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-left: 1px solid $accent-color-hover;
 
-    resize: none;
-
+  }
+  .output{
+    // border-top-left-radius: 0px;
+    //   border-bottom-left-radius: 0px;
+    border-right: 1px solid $accent-color-hover;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
   }
 
   .controls-container {
@@ -64,7 +78,7 @@ $accent-color-hover: #da1111;
 
     select {
       background-color: $secondary-color;
-  border: 1px solid red;
+  border: 1px solid $accent-color-hover;
       // border: transparent;
       border-radius: 5px;
       color: #000;
@@ -79,6 +93,7 @@ $accent-color-hover: #da1111;
   background-color: $accent-color;
   border: transparent;
   border-radius: 5px;
+  height: 50px;
   color: $primary-color;
   cursor: pointer;
   font-size: 16px;

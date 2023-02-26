@@ -1,9 +1,11 @@
 textarea{
   position: relative;
-  padding: 50px;
+  padding-top: 100px;
+  padding-left: 30px;
   width: 100vw;
   height: 250px;
   @media screen and (min-width: 1024px) {
+    padding: 30;
     width: 50%;
   }
 }

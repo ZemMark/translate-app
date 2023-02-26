@@ -6,7 +6,7 @@
   top: 10px;
   left: 10px;
   @media screen and (min-width: 1024px) {
-      top: 250px;
+      top: 258px;
       left: 10;
 
     }
@@ -16,7 +16,7 @@
   top: 320px;
   left:10px;
     @media screen and (min-width: 1024px) {
-      top: 250px;
+      top: 258px;
       left: 100%;
       transform: translateX(-100%);
       padding-right: 10px;
@@ -37,18 +37,13 @@ button[data-action="translate"]{
   margin-right: 40px;
 }
 
-// .reverse-button{
-//   position: absolute;
-//   top: 900%;
-//   left: 100%;
-//   transform: translateX(-50%);
-//     @media screen and (min-width: 1024px) {
-//       position: relative;
-//       transform: rotate(90deg);
-//       margin-right: auto;
-//     }
+.reverse-button{
+    @media screen and (min-width: 1024px) {
+      transform: rotate(90deg);
+      margin: 0 10px;
+    }
   
-// }
+}
 
 .controls-container{
   // position: absolute;
@@ -58,13 +53,12 @@ button[data-action="translate"]{
 }
 .langage-api{
   position: absolute;
-  top:240;
+  top:256;
   display: flex;
   // @media screen and (max-width: 1024px) {
-    
-  left: 50%;
-  transform: translateX(-50%);
+  justify-content: space-around;
   align-items: baseline;
+  width: 100vw;
   // }
 
 
