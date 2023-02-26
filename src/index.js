@@ -6,10 +6,12 @@ const refs = {
   matchList: document.querySelector('.match'),
   optionsLangFrom: document.getElementById('langFrom'),
   optionsLangTo: document.getElementById('langTo'),
-  controlsList: document.querySelector('.controls'),
+  controlsList: document.querySelectorAll('.controls'),
 };
+console.log(refs.controlsList);
 refs.form.addEventListener('submit', onSubmit);
-refs.controlsList.addEventListener('click', onIconCLick);
+refs.controlsList[0].addEventListener('click', onIconCLick);
+refs.controlsList[1].addEventListener('click', onIconCLick);
 
 function onSubmit(e) {
   e.preventDefault();

@@ -11,54 +11,72 @@
 </head>
 
 <body>
-  <!-- ❗️❗️❗️ Add partials like so for every page -->
-  <form method="get" id="form">
-    <div>
-      <!-- <label for="query">From</label> -->
-      <textarea type="text" name="langFrom" id="query" style="resize: none;"></textarea>
-      <textarea type=" text" name="langTo" class="output" id="output" readonly disabled
-        style="resize: none;"></textarea>
-      <ul class="controls">
-        <li class="control-item">
-          <i class="bi bi-volume-up" data-action="speeck" id="from"></i>
-          <i class="bi bi-stickies" data-action="copy" id="from"></i>
-        </li>
-        <li class="control-item">
-          <select name="lang" id="langFrom" class="form-select" aria-label="Default select example">
-            <option value="en-GB" selected>English</option>
-            <option value="de-DE">de</option>
-            <option value="it-IT">it</option>
-            <option value="fr-FR">Fanch</option>
-            <option value="es-ES">es</option>
-          </select>
+  <header></header>
+  <main>
 
-        </li>
+    <section class="">
+
+      <form method="get" id="form">
+        <div class="inputs">
+          <textarea type="text" name="langFrom" id="query" style="resize: none;"></textarea>
+          <textarea type=" text" name="langTo" class="output" id="output" readonly disabled
+            style="resize: none;"></textarea>
+        </div>
+        <div class="controls-container">
+
+          <ul class="controls from">
+            <li class="control-item">
+              <i class="bi bi-volume-up" data-action="speeck" id="from"></i>
+            </li>
+            <li class="control-item">
+              <i class="bi bi-stickies" data-action="copy" id="from"></i>
+
+            </li>
+            <li class="control-item">
+              <select name="lang" id="langFrom" class="form-select" aria-label="Default select example">
+                <option value="en-GB" selected>English</option>
+                <option value="de-DE">de</option>
+                <option value="it-IT">it</option>
+                <option value="fr-FR">Fanch</option>
+                <option value="es-ES">es</option>
+              </select>
+
+            </li>
+            <li class="reverse-button">
+              <i class="bi bi-arrow-down-up" data-action="reverse"></i>
+            </li>
+          </ul>
+          <ul class="controls to">
+
+            <li class="control-item">
+              <i class="bi bi-volume-up" data-action="speeck" id="to"></i>
+            </li>
+            <li class="control-item">
+              <i class="bi bi-stickies" data-action="copy" id="to"></i>
+
+            </li>
+            <li class="control-item">
+              <select name="langTo" id="langTo" class="form-select" aria-label="Default select example">
+                <option value="'en-GB'" selected>English</option>
+                <option value="de-DE">de</option>
+                <option value="it-IT">it</option>
+                <option value="fr-Fr" selected>Fanch</option>
+                <option value="es-ES">es</option>
+              </select>
+            </li>
 
 
-        <li class="control-item reverse" data-action="reverse">
-          <i class="bi bi-arrow-down-up" data-action="reverse"></i>
-        </li>
-        <li class="control-item">
-          <i class="bi bi-volume-up" data-action="speeck" id="to"></i>
-          <i class="bi bi-stickies" data-action="copy" id="to"></i>
-        </li>
-        <li class="control-item">
-          <select name="langTo" id="langTo" class="form-select" aria-label="Default select example">
-            <option value="'en-GB'" selected>English</option>
-            <option value="de-DE">de</option>
-            <option value="it-IT">it</option>
-            <option value="fr-Fr" selected>Fanch</option>
-            <option value="es-ES">es</option>
-          </select>
-        </li>
 
+          </ul>
+        </div>
+        <button type="submit" id="submit" data-action="translate">translate</button>
 
+      </form>
+    </section>
+  </main>
+  <footer>
 
-      </ul>
-    </div>
-    <button type="submit" id="submit" data-action="translate">translate</button>
-
-  </form>
+  </footer>
   <ul class="match"></ul>
   <script src="./index.js" type="module"></script>
 

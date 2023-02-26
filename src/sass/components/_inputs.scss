@@ -1,4 +1,18 @@
 textarea{
-  width: 250px;
+  position: relative;
+  padding: 50px;
+  width: 100vw;
   height: 250px;
+  @media screen and (min-width: 1024px) {
+    width: 50%;
+  }
+}
+.inputs {
+  position: relative;
+  width: 100vw;
+  display: block;
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    width: 100%;
+  }
 }

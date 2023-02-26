@@ -1,20 +1,51 @@
 .controls{
   display: flex;
+  position: absolute;
+    top: 10;
+    left: 10;
+    align-items: center;
+}
+.to{
+
+  top: 260;
+  left:10;
+    @media screen and (min-width: 1024px) {
+      top: 10;
+      left: 100%;
+      transform: translateX(-100%);
+      padding-right: 10px;
+    }
 }
 i{
+  
   cursor: pointer;
+  @media screen and (min-width: 1024) {
+    
+  }
 }
-.control-item.reverse{
-  margin: auto;
-  transform: rotate(90deg);
 
-}
 button[data-action="translate"]{
   width: 100%;
 }
 .controls li:first-child{
   margin-right: 40px;
 }
-.controls li:last-child{
-  margin-left: 40px;
+
+.reverse-button{
+  position: absolute;
+  top: 900%;
+  left: 100%;
+  transform: translateX(-50%);
+    @media screen and (min-width: 1024px) {
+      position: relative;
+      transform: rotate(90deg);
+      margin-right: auto;
+    }
+  
+}
+
+.controls-container{
+    @media screen and (min-width: 1024px) {
+      position: relative;
+    }
 }
