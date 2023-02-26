@@ -17,7 +17,9 @@
     }
 }
 i{
-  
+  @media screen and (max-width: 1024px) {
+    font-size: 18px;
+  }
   cursor: pointer;
   @media screen and (min-width: 1024) {
     
