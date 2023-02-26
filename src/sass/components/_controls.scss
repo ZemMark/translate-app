@@ -27,9 +27,7 @@ i{
     font-size: 18px;
   }
   cursor: pointer;
-  @media screen and (min-width: 1024) {
-    
-  }
+  
 }
 
 button[data-action="translate"]{
@@ -60,15 +58,57 @@ button[data-action="translate"]{
 }
 .langage-api{
   position: absolute;
-  top:250;
+  top:240;
   display: flex;
   // @media screen and (max-width: 1024px) {
     
-    left: 50%;
-    transform: translateX(-50%);
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: baseline;
   // }
 
-  @media screen and (min-width: 1024px){
-    // left: 0
-  }
+
+}
+
+select {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+select:focus {
+  outline: none;
+}
+
+option {
+  background-color: #222;
+  color: #fff;
+  border: none;
+}
+
+option:hover {
+  background-color: #444;
+}
+
+i {
+  display: inline-block;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+i:hover {
+  background-color: #444;
+}
+
+i:focus {
+  outline: none;
 }
