@@ -22,7 +22,7 @@
       padding-right: 10px;
     }
 }
-i{
+.control-item{
   @media screen and (max-width: 1024px) {
     font-size: 18px;
   }
@@ -86,7 +86,7 @@ option:hover {
   background-color: #444;
 }
 
-i {
+.control-item i {
   display: inline-block;
   background-color: #333;
   color: #fff;
@@ -97,12 +97,17 @@ i {
   text-decoration: none;
   font-size: 16px;
   cursor: pointer;
+  transition: color 0.4s linear;
 }
 
-i:hover {
+.control-item i:hover {
   background-color: #444;
 }
 
-i:focus {
-  outline: none;
+.control-item i:focus {
+  outline: transparent;
+}
+.control-item:active i {
+  color: rgb(21, 255, 0);
+  outline: transparent;
 }

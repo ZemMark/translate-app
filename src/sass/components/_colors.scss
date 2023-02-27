@@ -1,8 +1,8 @@
 /* Colors */
 $primary-color: #ffffff;
 $secondary-color: #ffffff;
-$accent-color: #41483c;
-$accent-color-hover: #414641;
+$accent-color:  #4b604b;
+$accent-color-hover: #41483c ;
 
 /* Remove default styling */
 * {
@@ -15,7 +15,7 @@ $accent-color-hover: #414641;
 .form-select {
   // appearance: none;
   background-color: $secondary-color;
-  border: 1px solid $accent-color-hover;
+  border: 1px solid $accent-color;
   border-radius: 5px;
   color: $primary-color;
   font-size: 16px;
@@ -23,7 +23,7 @@ $accent-color-hover: #414641;
 }
 
 /* Style for the button-like tag i */
-.bi {
+.control-item {
   background-color: $accent-color;
   border: none;
   border-radius: 5px;
@@ -31,11 +31,19 @@ $accent-color-hover: #414641;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.2s ease-in-out;
-
+  transition: transform 0.2s ease-in-out;
   &:hover {
-    background-color: $accent-color-hover;
-  }
+      background-color: $accent-color-hover;
+      transform: scale(1.1);
+    }
+  
+    &:active {
+      transform: scale(0.9);
+    }
+
+  
 }
+
 
 /* Style for the form inputs and submit button */
 .inputs {
@@ -47,8 +55,8 @@ $accent-color-hover: #414641;
   textarea {
     background-color: $secondary-color;
     // border: none;
-  border-top: 1px solid $accent-color-hover;
-  border-bottom: 1px solid $accent-color-hover;
+  border-top: 1px solid $accent-color;
+  border-bottom: 1px solid $accent-color;
   outline: transparent;
   color: #000;
   font-size: 16px;
@@ -59,13 +67,13 @@ $accent-color-hover: #414641;
 .input{
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    border-left: 1px solid $accent-color-hover;
+    border-left: 1px solid $accent-color;
 
   }
   .output{
     // border-top-left-radius: 0px;
     //   border-bottom-left-radius: 0px;
-    border-right: 1px solid $accent-color-hover;
+    border-right: 1px solid $accent-color;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
   }
@@ -78,7 +86,7 @@ $accent-color-hover: #414641;
 
     select {
       background-color: $secondary-color;
-  border: 1px solid $accent-color-hover;
+  border: 1px solid $accent-color;
       // border: transparent;
       border-radius: 5px;
       color: #000;
@@ -98,8 +106,13 @@ $accent-color-hover: #414641;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 
   &:hover {
     background-color: $accent-color-hover;
+    
+  }
+  &:active{
+    transform: scale(0.9);
   }
 }

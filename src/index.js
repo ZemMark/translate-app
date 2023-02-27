@@ -8,6 +8,10 @@ const refs = {
   optionsLangTo: document.getElementById('langTo'),
   controlsList: document.querySelectorAll('.controls'),
 };
+const isMobile =
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  );
 console.log(refs.controlsList);
 refs.form.addEventListener('submit', onSubmit);
 refs.controlsList[0].addEventListener('click', onIconCLick);
@@ -80,15 +84,19 @@ function onIconCLick(e) {
     plaingIsProcessing();
   }
   if (e.target.getAttribute('data-action') === 'copy') {
-    if (e.target.id === 'from') {
-      // console.log('on copy click (from)');
-      copyText(refs.inputQuery.value);
-      seccussesCopy();
-      return;
+    if (e.target.getAttribute('data-action') === 'copy') {
+      if (e.target.id === 'from') {
+        // console.log('on copy click (from)');
+        copyText(refs.inputQuery.value);
+        seccussesCopy();
+        changeColorAfterClickandSeccusses(e);
+        return;
+      }
+      copyText(refs.output.value);
     }
-    copyText(refs.output.value);
     // console.log('on copy click(to)');
     seccussesCopy();
+    changeColorAfterClickandSeccusses(e);
   }
   if (e.target.getAttribute('data-action') === 'reverse') {
     console.log('reverse languages');
@@ -116,15 +124,22 @@ function reverseLang() {
   );
 }
 function seccussesCopy() {
-  Notify.success('text copied');
+  if (!isMobile) {
+    Notify.success('text copied');
+  }
 }
 function plaingIsProcessing() {
-  Notify.info('processing sound');
+  if (!isMobile) {
+    Notify.info('processing sound');
+  }
 }
 function onEnterPress(e) {
   if (e.code === 'Enter') {
     onSubmit(e);
   }
+}
+function changeColorAfterClickandSeccusses(e) {
+  e.target.style.color = 'green';
 }
 // function showResult() {
 // refs.output.textContent =
