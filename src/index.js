@@ -12,6 +12,7 @@ console.log(refs.controlsList);
 refs.form.addEventListener('submit', onSubmit);
 refs.controlsList[0].addEventListener('click', onIconCLick);
 refs.controlsList[1].addEventListener('click', onIconCLick);
+window.addEventListener('keydown', onEnterPress);
 
 function onSubmit(e) {
   e.preventDefault();
@@ -21,35 +22,40 @@ function onSubmit(e) {
   if (!value) {
     return;
   }
-  getTranslate(value, implementMatches, fromLang, langTo);
+  // getTranslate(value, implementMatches, fromLang, langTo);
+  getTranslate(value, fromLang, langTo);
 }
 
-function implementMatches(match) {
-  // console.log('matches: ', match);
+// function implementMatches(match) {
+//   // console.log('matches: ', match);
 
-  refs.matchList.innerHTML = match;
-}
-async function getTranslate(query, callback, fromLang, langTo) {
+//   refs.matchList.innerHTML = match;
+// }
+// async function getTranslate(query, callback, fromLang, langTo) {
+async function getTranslate(query, fromLang, langTo) {
   // console.log('langs :', fromLang, langTo);
   try {
     const res = await fetch(
       `https://api.mymemory.translated.net/get?q="${query}"!&langpair=${fromLang}|${langTo}`
     );
+    if (!res.ok) {
+      throw new Error('failed fatch!');
+    }
     const data = res.json();
     const translate = await data;
     // console.log(translate);
     // const matches = translate.matches.map(match => match.segment);
-    const matches = translate.matches
-      .map(el => {
-        return `
-        <li><p>${el.segment}</p></li>
-      `;
-      })
-      .join('');
+    // const matches = translate.matches
+    //   .map(el => {
+    //     return `
+    //     <li><p>${el.segment}</p></li>
+    //   `;
+    //   })
+    //   .join('');
     // console.log(matches);
 
     refs.output.textContent = translate.responseData.translatedText;
-    callback(matches);
+    // callback(matches);
   } catch (error) {
     console.dir(error);
   }
@@ -115,7 +121,11 @@ function seccussesCopy() {
 function plaingIsProcessing() {
   Notify.info('processing sound');
 }
-
+function onEnterPress(e) {
+  if (e.code === 'Enter') {
+    onSubmit(e);
+  }
+}
 // function showResult() {
 // refs.output.textContent =
 // }
