@@ -1,113 +1,78 @@
-.controls{
-  // width: 100%;
-  display: flex;
+.controls>li:first-child{
+  margin-right: 10px;
+}
+.controls.from{
   position: absolute;
+  bottom: 15;
+  right: 15;
+  display: flex;
+}
+.language-api{
+  display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  top: 10px;
-  left: 10px;
-  @media screen and (min-width: 1024px) {
-      top: 258px;
-      left: 10;
-
-    }
-}
-.to{
-
-  top: 320px;
-  left:10px;
-    @media screen and (min-width: 1024px) {
-      top: 258px;
-      left: 100%;
-      transform: translateX(-100%);
-      padding-right: 10px;
-    }
-}
-.control-item{
-  @media screen and (max-width: 1024px) {
-    font-size: 18px;
-  }
-  cursor: pointer;
-  
-}
-
-button[data-action="translate"]{
   width: 100%;
-}
-.controls li:first-child{
-  margin-right: 40px;
-}
 
-.reverse-button{
-    @media screen and (min-width: 1024px) {
-      transform: rotate(90deg);
-      margin: 0 10px;
-    }
-  
-}
-
-.controls-container{
-  // position: absolute;
-  top: 0;
-  left: 0;
-  
-}
-.langage-api{
+      }
+.controls.to {
   position: absolute;
-  top:256;
+  bottom: 15;
+  right: 15;
   display: flex;
-  // @media screen and (max-width: 1024px) {
-  justify-content: space-around;
-  align-items: baseline;
-  width: 100vw;
-  // }
-
-
 }
-
 select {
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-}
-
-select:focus {
-  outline: none;
-}
-
-option {
-  background-color: #222;
-  color: #fff;
-  border: none;
-}
-
-option:hover {
-  background-color: #444;
-}
-
-.control-item i {
-  display: inline-block;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
+  border-radius: 15px;
+  padding: 8px 16px;
   font-size: 16px;
-  cursor: pointer;
-  transition: color 0.4s linear;
+  background-color: $accent-color-hover;
+  border:none;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  outline: transparent;
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
 }
 
-.control-item i:hover {
-  background-color: #444;
+select:hover {
+  border-color: $accent-color-hover;
 }
 
-.control-item i:focus {
-  outline: transparent;
+// select:focus {
+//   border-color: #0066cc;
+//   box-shadow: 0 0 3px 1px rgba(0, 102, 204, 0.7);
+// }
+.control-item{
+  background-color: $buttons;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
+
+  &:hover{
+    animation-name: color-change;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+    
 }
-.control-item:active i {
-  color: rgb(21, 255, 0);
-  outline: transparent;
+
+
+@keyframes color-change {
+  0% {
+    color: white;
+  }
+
+  50% {
+    color: green;
+  }
+
+  100% {
+    color: white;
+  }
 }

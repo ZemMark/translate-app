@@ -1,118 +1,38 @@
 /* Colors */
 $primary-color: #ffffff;
 $secondary-color: #ffffff;
-$accent-color:  #4b604b;
-$accent-color-hover: #41483c ;
+$accent-color:   #555555;
+$accent-color-hover: #8B8681 ;
+$buttons: #7972AA;
 
 /* Remove default styling */
-* {
-  // margin: 0;
-  // padding: 0;
-  box-sizing: border-box;
-}
-
-/* Style for the tag select */
-.form-select {
-  // appearance: none;
-  background-color: $secondary-color;
-  border: 1px solid $accent-color;
-  border-radius: 5px;
-  color: $primary-color;
-  font-size: 16px;
-  width: 100%;
-}
-
-/* Style for the button-like tag i */
-.control-item {
+section{
   background-color: $accent-color;
-  border: none;
-  border-radius: 5px;
-  color: $primary-color;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out;
-  &:hover {
-      background-color: $accent-color-hover;
-      transform: scale(1.1);
-    }
-  
-    &:active {
-      transform: scale(0.9);
-    }
-
-  
 }
-
-
-/* Style for the form inputs and submit button */
-.inputs {
-  background-color: $primary-color;
-  border-radius: 5px;
-  color: #000;
-
-
-  textarea {
-    background-color: $secondary-color;
-    // border: none;
-  border-top: 1px solid $accent-color;
-  border-bottom: 1px solid $accent-color;
+textarea,
+textarea:disabled{
+  background-color: $accent-color-hover;
+  border-radius: 10px;
   outline: transparent;
-  color: #000;
-  font-size: 16px;
-  
-  resize: none;
+  border: transparent;
+  padding-top: 20px;
+  padding-left: 15px;
+  color: #ffffff;
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
   
 }
-.input{
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-left: 1px solid $accent-color;
-
-  }
-  .output{
-    // border-top-left-radius: 0px;
-    //   border-bottom-left-radius: 0px;
-    border-right: 1px solid $accent-color;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-  }
-
-  .controls-container {
-    display: flex;
-    justify-content: space-between;
-  }
-
-
-    select {
-      background-color: $secondary-color;
-  border: 1px solid $accent-color;
-      // border: transparent;
-      border-radius: 5px;
-      color: #000;
-      font-size: 16px;
-    }
-  }
-
-
-
-
-#submit {
-  background-color: $accent-color;
+#submit{
   border: transparent;
-  border-radius: 5px;
-  height: 50px;
-  color: $primary-color;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out;
+  border-radius: 15px;
+  width: 50%;
+  height: 35px;
+  background-color: $buttons;
 
-  &:hover {
-    background-color: $accent-color-hover;
-    
-  }
-  &:active{
-    transform: scale(0.9);
-  }
+
+  color: white;
+    font-size: 16px;
+    font-weight: bold;
+    font-variant: small-caps;
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
+
 }

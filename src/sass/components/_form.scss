@@ -1,7 +1,8 @@
 form{
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   @media screen and (min-width: 1024px) {
-    width: 510;
-    margin: 50px auto;
+    margin-top: 40px;
   }
 }
