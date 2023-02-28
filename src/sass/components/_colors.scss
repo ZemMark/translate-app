@@ -1,17 +1,44 @@
 /* Colors */
-$primary-color: #ffffff;
-$secondary-color: #ffffff;
-$accent-color:   #555555;
-$accent-color-hover: #8B8681 ;
-$buttons: #7972AA;
+// $accent-color:   #555555;
+// $accent-color-hover: #8B8681 ;
+// $buttons: #7972AA;
+
+// $primary-color-light: #393030;
+// $secondary-color-light: #ffffff;
+// $accent-color-light:   #ffffff;
+// $accent-color-hover-light: #bcb3ab ;
+// $buttons-light: #128022;
+// $theme-switcher-bg-light: #f5f5f6;
+// $theme-switcher-before-light: #FFD371;
+
+// $primary:$accent-color-light;
+// $secondary:$secondary-color-light;
+// $accent-color:$accent-color-light;
+// $accent-hover:$accent-color-hover-light;
+// $theme-switcher-bg-light: $theme-switcher-bg-light;
+// $theme-switcher-before-light: $theme-switcher-before-light;
+:root[data-theme="light"]{
+  --bgc: #555555;
+  --inputs: #8B8681;
+  --theme-swither: #f5f5f6;
+  --theme-switcher-before: #FFD371;
+  --buttons: #7972AA;
+}
+:root[data-theme="dark"]{
+  --bgc: #0a0a0a;
+  --inputs: #23211f;
+  --theme-swither: #77757E;
+  --theme-switcher-before: #7190FF;
+  --buttons: #7972AA;
+}
 
 /* Remove default styling */
 section{
-  background-color: $accent-color;
+  background-color: var(--bgc);
 }
 textarea,
 textarea:disabled{
-  background-color: $accent-color-hover;
+  background-color: var(--inputs);
   border-radius: 10px;
   outline: transparent;
   border: transparent;
@@ -26,7 +53,7 @@ textarea:disabled{
   border-radius: 15px;
   width: 50%;
   height: 35px;
-  background-color: $buttons;
+  background-color: var(--buttons);
 
 
   color: white;

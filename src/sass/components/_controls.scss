@@ -24,7 +24,7 @@ select {
   border-radius: 15px;
   padding: 8px 16px;
   font-size: 16px;
-  background-color: $accent-color-hover;
+  background-color: var(--inputs);
   border:none;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   outline: transparent;
@@ -32,7 +32,7 @@ select {
 }
 
 select:hover {
-  border-color: $accent-color-hover;
+  border-color: var(--inputs);
 }
 
 // select:focus {
@@ -40,7 +40,7 @@ select:hover {
 //   box-shadow: 0 0 3px 1px rgba(0, 102, 204, 0.7);
 // }
 .control-item{
-  background-color: $buttons;
+  background-color: var(--buttons);
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -54,10 +54,12 @@ select:hover {
     font-weight: bold;
     box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
 
-  &:hover{
+  &:focuse,
+  &:hover,
+  &:active{
     animation-name: color-change;
     animation-duration: 2s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 1;
   }
     
 }
