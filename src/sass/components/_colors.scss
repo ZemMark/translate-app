@@ -18,26 +18,31 @@
 // $theme-switcher-bg-light: $theme-switcher-bg-light;
 // $theme-switcher-before-light: $theme-switcher-before-light;
 :root[data-theme="light"]{
-  --bgc: #555555;
-  --inputs: #8B8681;
+  --bgc: #EAFDFC;
+  --inputs: #BFEAF5;
   --theme-swither: #f5f5f6;
   --theme-switcher-before: #FFD371;
-  --buttons: #7972AA;
+  --buttons: #205E61;
   --position-switcher:2px;
   --position-switcher-Y:2px;
   --icons-color: #DCE3FF;
+  --select-text-color: #212121;
+  // --text-color: #212121;
 }
 :root[data-theme="dark"]{
-  --inputs: #1b1b1b;
-  --bgc: darken(var(--inputs));
+  --inputs: #232b2b;
+  --bgc: #0e1111;
   --theme-swither: #0A0A09;
-  --theme-switcher-before: #7190FF;
-  --buttons: #868D55;
+  --theme-switcher-before: #3d0000;
+  --buttons: #7a0000;
   --position-switcher:30px;
     --position-switcher-Y:2px;
-  --icons-color: #B1B0B5;
+  --icons-color: #89898a;
+  --text-color: #FFD372;
+  --select-text-color: #f5f5f6;
 }
 $transition: background-color 400ms linear;
+$transition-btn: transform 0.3s ease-in-out;
 /* Remove default styling */
 section{
   background-color: var(--bgc);
@@ -60,6 +65,9 @@ textarea:disabled{
   width: 50%;
   height: 35px;
   background-color: var(--buttons);
+
+  transition: $transition-btn;
+  cursor: pointer;
 
 
   color: white;

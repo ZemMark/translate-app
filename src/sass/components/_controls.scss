@@ -24,11 +24,15 @@ select {
   border-radius: 15px;
   padding: 8px 16px;
   font-size: 16px;
+  font-variant: small-caps;
   background-color: var(--inputs);
   border:none;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   outline: transparent;
   box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: $transition-btn;
+  color: var(--select-text-color)
 }
 
 select:hover {
@@ -43,38 +47,28 @@ select:hover {
   background-color: var(--buttons);
   width: 30px;
   height: 30px;
+  padding: 18px;
   border-radius: 50%;
   display: flex;
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
+  transition: $transition-btn;
 
 
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 
-  &:focuse,
-  &:hover,
-  &:active{
-    animation-name: color-change;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-  }
+  
     
 }
+.control-item:active,
+#submit:active{
+  transform: scale(0.9);
+}
 
-
-@keyframes color-change {
-  0% {
-    color: white;
-  }
-
-  50% {
-    color: green;
-  }
-
-  100% {
-    color: white;
-  }
+.copied{
+  color: green;
 }

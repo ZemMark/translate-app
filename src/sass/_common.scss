@@ -1,6 +1,7 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 *{
   box-sizing: border-box;
+  margin: 0;padding: 0;
 }
 html::before,
 html::after{
@@ -12,8 +13,8 @@ ul{
   margin: 0;
 }
 section{
-  width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center
 }
+

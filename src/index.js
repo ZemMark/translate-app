@@ -1,5 +1,16 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import themeSwitcher from './js/theme-switcher';
+Notify.init({
+  position: 'center-top',
+  opacity: 0.6,
+  success: {
+    background: 'var(--buttons)',
+  },
+  info: {
+    background: 'var(--buttons)',
+  },
+});
+
 const refs = {
   form: document.getElementById('form'),
   inputQuery: document.getElementById('query'),
@@ -8,7 +19,9 @@ const refs = {
   optionsLangFrom: document.getElementById('langFrom'),
   optionsLangTo: document.getElementById('langTo'),
   controlsList: document.querySelectorAll('.controls'),
+  copyBtnsRef: document.querySelectorAll('li'),
 };
+console.log(refs.copyBtnsRef);
 const isMobile =
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
@@ -24,6 +37,7 @@ function onSubmit(e) {
   const value = refs.inputQuery.value.trim();
   const fromLang = refs.optionsLangFrom.value;
   const langTo = refs.optionsLangTo.value;
+  returnWhiteColorAfterClickCopy();
   if (!value) {
     return;
   }
@@ -64,8 +78,6 @@ async function getTranslate(query, fromLang, langTo) {
   } catch (error) {
     console.dir(error);
   }
-
-  // return ;
 }
 function onIconCLick(e) {
   // console.log(e.target);
@@ -90,14 +102,12 @@ function onIconCLick(e) {
         // console.log('on copy click (from)');
         copyText(refs.inputQuery.value);
         seccussesCopy();
-        changeColorAfterClickandSeccusses(e);
         return;
       }
       copyText(refs.output.value);
     }
     // console.log('on copy click(to)');
     seccussesCopy();
-    changeColorAfterClickandSeccusses(e);
   }
   if (e.target.getAttribute('data-action') === 'reverse') {
     console.log('reverse languages');
@@ -139,9 +149,30 @@ function onEnterPress(e) {
     onSubmit(e);
   }
 }
-function changeColorAfterClickandSeccusses(e) {
-  e.target.style.color = 'green';
+console.log(refs.copyBtnsRef);
+function changeColorAfterClickandSeccusses() {
+  // e.target.style.color = 'green';
+  refs.copyBtnsRef.forEach(el =>
+    el.addEventListener('click', () => {
+      // console.log(e.target);
+      el.classList.add('copied');
+      console.log('copied from: ', el);
+    })
+  );
+  // console.log(e.target);
 }
+function returnWhiteColorAfterClickCopy() {
+  refs.copyBtnsRef.forEach(
+    el => {
+      if (el.classList.contains('copied')) {
+        el.classList.remove('copied');
+      }
+    }
+    // console.log(e.target);
+  );
+}
+changeColorAfterClickandSeccusses();
+
 // function showResult() {
 // refs.output.textContent =
 // }
