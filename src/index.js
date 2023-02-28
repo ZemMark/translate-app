@@ -1,4 +1,5 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import themeSwitcher from './js/theme-switcher';
 const refs = {
   form: document.getElementById('form'),
   inputQuery: document.getElementById('query'),

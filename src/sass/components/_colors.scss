@@ -23,15 +23,21 @@
   --theme-swither: #f5f5f6;
   --theme-switcher-before: #FFD371;
   --buttons: #7972AA;
+  --position-switcher:2px;
+  --position-switcher-Y:2px;
+  --icons-color: #DCE3FF;
 }
 :root[data-theme="dark"]{
-  --bgc: #0a0a0a;
-  --inputs: #23211f;
-  --theme-swither: #77757E;
+  --inputs: #1b1b1b;
+  --bgc: darken(var(--inputs));
+  --theme-swither: #0A0A09;
   --theme-switcher-before: #7190FF;
-  --buttons: #7972AA;
+  --buttons: #868D55;
+  --position-switcher:30px;
+    --position-switcher-Y:2px;
+  --icons-color: #B1B0B5;
 }
-
+$transition: background-color 400ms linear;
 /* Remove default styling */
 section{
   background-color: var(--bgc);
@@ -62,4 +68,7 @@ textarea:disabled{
     font-variant: small-caps;
     box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
 
+}
+*{
+  transition: $transition
 }

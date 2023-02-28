@@ -8,24 +8,26 @@
   width: 56px;
   height: 28px;
 }
+.theme-switcher::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(var(--position-switcher),var(--position-switcher-Y));
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--theme-switcher-before);
+  z-index: 0;
+  transition: transform 400ms linear;
+}
 .switch-icon{
   padding: 5px;
   cursor: pointer;
   z-index: 1;
+  fill: currentColor;
   
   // &:sun{
 
   // }
-}
-.theme-switcher::before {
-  content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(4%, 4%);
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background-color: var(--theme-switcher-before);
-    z-index: 0;
 }
