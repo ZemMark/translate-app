@@ -41,7 +41,7 @@
   --text-color: #FFD372;
   --select-text-color: #f5f5f6;
 }
-$transition: background-color 400ms linear;
+$transition: background-color 400ms linear, color 400ms linear, border-color 400ms linear;
 $transition-btn: transform 0.3s ease-in-out;
 /* Remove default styling */
 section{

@@ -3,8 +3,8 @@ export default function themeSwitch() {
   let dataTheme = rootEl.getAttribute('data-theme'),
     newTheme;
   newTheme = dataTheme === 'light' ? 'dark' : 'light';
-  console.log(dataTheme);
   rootEl.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
 }
 document
   .querySelector('.theme-switcher')
