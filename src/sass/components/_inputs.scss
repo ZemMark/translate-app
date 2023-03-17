@@ -3,5 +3,9 @@ textarea:disabled{
   width: 250px;
   height: 200px;
   color: var(--text-color);
+  @media screen and (min-width: 600px) {
+    width: 550px;
+    
+  }
 }
 
