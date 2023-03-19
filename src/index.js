@@ -20,6 +20,7 @@ const refs = {
   optionsLangTo: document.getElementById('langTo'),
   controlsList: document.querySelectorAll('.controls'),
   copyBtnsRef: document.querySelectorAll('li'),
+  reverseLanguage: document.querySelector('.reverse-button'),
 };
 console.log(refs.copyBtnsRef);
 const isMobile =
@@ -30,6 +31,7 @@ console.log(refs.controlsList);
 refs.form.addEventListener('submit', onSubmit);
 refs.controlsList[0].addEventListener('click', onIconCLick);
 refs.controlsList[1].addEventListener('click', onIconCLick);
+refs.reverseLanguage.addEventListener('click', reverseLang);
 window.addEventListener('keydown', onEnterPress);
 
 function onSubmit(e) {
@@ -41,18 +43,10 @@ function onSubmit(e) {
   if (!value) {
     return;
   }
-  // getTranslate(value, implementMatches, fromLang, langTo);
   getTranslate(value, fromLang, langTo);
 }
 
-// function implementMatches(match) {
-//   // console.log('matches: ', match);
-
-//   refs.matchList.innerHTML = match;
-// }
-// async function getTranslate(query, callback, fromLang, langTo) {
 async function getTranslate(query, fromLang, langTo) {
-  // console.log('langs :', fromLang, langTo);
   try {
     const res = await fetch(
       `https://api.mymemory.translated.net/get?q="${query}"!&langpair=${fromLang}|${langTo}`
@@ -62,31 +56,17 @@ async function getTranslate(query, fromLang, langTo) {
     }
     const data = res.json();
     const translate = await data;
-    // console.log(translate);
-    // const matches = translate.matches.map(match => match.segment);
-    // const matches = translate.matches
-    //   .map(el => {
-    //     return `
-    //     <li><p>${el.segment}</p></li>
-    //   `;
-    //   })
-    //   .join('');
-    // console.log(matches);
 
     refs.output.textContent = translate.responseData.translatedText;
-    // callback(matches);
   } catch (error) {
     console.dir(error);
   }
 }
 function onIconCLick(e) {
-  // console.log(e.target);
-
   if (e.target.getAttribute('data-action') === 'speeck') {
     if (e.target.id === 'from') {
       console.log('on sound click (from)');
       playSound(refs.inputQuery.value, refs.optionsLangFrom.value);
-      // console.log(refs.inputQuery.value, refs.optionsLangFrom.value);
       plaingIsProcessing();
 
       return;
@@ -99,19 +79,16 @@ function onIconCLick(e) {
   if (e.target.getAttribute('data-action') === 'copy') {
     if (e.target.getAttribute('data-action') === 'copy') {
       if (e.target.id === 'from') {
-        // console.log('on copy click (from)');
         copyText(refs.inputQuery.value);
         seccussesCopy();
         return;
       }
       copyText(refs.output.value);
     }
-    // console.log('on copy click(to)');
     seccussesCopy();
   }
   if (e.target.getAttribute('data-action') === 'reverse') {
     console.log('reverse languages');
-    reverseLang();
   }
 }
 function playSound(value, lang) {
@@ -122,11 +99,39 @@ function playSound(value, lang) {
 function copyText(value) {
   navigator.clipboard.writeText(value);
 }
+// function reverseLang() {
+//   let temporaryText = refs.inputQuery.value,
+//     temporaryLang = refs.optionsLangFrom.value;
+//   refs.inputQuery.value = refs.output.value;
+//   refs.output.value = temporaryText;
+//   refs.optionsLangFrom.value = refs.optionsLangTo.value;
+//   refs.optionsLangTo.value = temporaryLang;
+
+//   refs.optionsLangTo.value = temporaryLang;
+//   console.log(
+//     'from:',
+//     refs.optionsLangFrom.value,
+//     'to:',
+//     refs.optionsLangTo.value
+//   );
+// }
 function reverseLang() {
   let temporaryText = refs.inputQuery.value,
     temporaryLang = refs.optionsLangFrom.value;
+  refs.inputQuery.value = refs.output.textContent;
+  refs.output.textContent = temporaryText;
   refs.optionsLangFrom.value = refs.optionsLangTo.value;
   refs.optionsLangTo.value = temporaryLang;
+  console.log('temporaryLang', temporaryLang, refs.optionsLangTo);
+
+  const value = refs.output.textContent.trim();
+  const fromLang = refs.optionsLangFrom.value;
+  const langTo = refs.optionsLangTo.value;
+  if (!value) {
+    return;
+  }
+  getTranslate(value, fromLang, langTo);
+
   console.log(
     'from:',
     refs.optionsLangFrom.value,
@@ -134,6 +139,7 @@ function reverseLang() {
     refs.optionsLangTo.value
   );
 }
+
 function seccussesCopy() {
   if (!isMobile) {
     Notify.success('text copied');
@@ -149,30 +155,18 @@ function onEnterPress(e) {
     onSubmit(e);
   }
 }
-console.log(refs.copyBtnsRef);
 function changeColorAfterClickandSeccusses() {
-  // e.target.style.color = 'green';
   refs.copyBtnsRef.forEach(el =>
     el.addEventListener('click', () => {
-      // console.log(e.target);
       el.classList.add('copied');
       console.log('copied from: ', el);
     })
   );
-  // console.log(e.target);
 }
 function returnWhiteColorAfterClickCopy() {
-  refs.copyBtnsRef.forEach(
-    el => {
-      if (el.classList.contains('copied')) {
-        el.classList.remove('copied');
-      }
+  refs.copyBtnsRef.forEach(el => {
+    if (el.classList.contains('copied')) {
+      el.classList.remove('copied');
     }
-    // console.log(e.target);
-  );
+  });
 }
-changeColorAfterClickandSeccusses();
-
-// function showResult() {
-// refs.output.textContent =
-// }
